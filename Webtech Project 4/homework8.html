@@ -1,0 +1,152 @@
+<html>
+<head> 
+<style type="text/css">
+
+.tablestock
+{
+color:black;
+background:#CCFFFF;
+}
+</style>
+
+   <script src="http://connect.facebook.net/en_US/all.js"> </script>
+<script>
+
+                       window.fbAsyncInit = function()
+                       {
+                               FB.init({appId: '144412195606605', status: true, cookie: true,xfbml: true});
+                       };
+
+                       (function()
+                       {
+                               var e = document.createElement('script'); e.async = true;
+                               e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+                               document.getElementById("myActiveArea").appendChild(e);
+                       }());
+
+               </script>
+     <script type="text/javascript">
+var Docstock;
+var Index;
+var xmlhttp;
+
+                       function Post_onWall()
+                       {
+                               FB.ui({/*display: 'iframe',*/ method: 'stream.publish',message:'Current Stock Quote for '+Docstock['stocks']['stock'][Index]['symbol']+' is $'+Docstock['stocks']['stock'][Index]['Price'],
+			 attachment: {
+                               name: 'Stock feed: My Favorite Stock',
+                               caption: 'Stock Chart for your stock ',
+                               description: ('Share Your favorite Stock on Your facebook Wall!'),
+                               },
+                               user_message_prompt: 'Do not forget to leave a comment about this application!'
+                               },
+
+                               function(response)
+                               {
+                                       if (response && response.post_id)
+                                       {
+                                               alert('Posted successfully on your Facebook Wall');
+                                       }
+
+                                       else
+                                       {
+                                               alert('Did not post to your facebook wall!');
+                                       }
+                               });
+
+                       }
+
+               </script>
+  <title>Yahoo Finance and Facebook Mashup</title> 
+  <script type="text/javascript">
+
+		function RequestLoadDoc(servletPath)
+		{
+			var searchstockval = document.getElementById("searchstockval").value;
+                        searchstockval = searchstockval.replace(/ /g,"+");
+
+			if(searchstockval=='')
+			{
+				alert("Please Enter a Search Query");
+				return;
+			}
+
+                 if (window.XMLHttpRequest)
+  			{
+  					xmlhttp=new XMLHttpRequest(); //for firefox
+  			}
+				else { if (window.ActiveXObject) {
+						try { xmlhttp = new ActiveXObject("Microsoft.XMLHTTP"); }
+						catch (e) { xmlhttp = false;
+						         	 }
+			} }
+
+			var query = servletPath+"?searchstockval="+searchstockval;
+			xmlhttp.open("GET", query, true);
+			xmlhttp.onreadystatechange = myCallback;
+			xmlhttp.setRequestHeader("Connection", "Close");
+			xmlhttp.setRequestHeader("Method", "GET" + query + "HTTP/1.1");
+			xmlhttp.send(null);
+
+		function myCallback()
+			{
+
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
+				{
+				Docstock = eval('(' + xmlhttp.responseText + ')');
+					var txt = "<table class='tablestock' id='stockval' name='stockval' border=2px><tr><td><b>Symbol</b></td><td><b>Price</b></td><td><b>Open</b></td><td><b>Bid</b></td><td><b>Ask</b></td><td><b>Trend Chart</b></td></tr>";
+					for(var i=0; i<Docstock['stocks']['stock'].length; i++) 
+					{
+						var stock = Docstock['stocks']['stock'][i];
+						txt += "<tr><td>"+stock['symbol']+"</td><td>"+stock['Price']+"</td><td>"+stock['Open']+"</td><td>"+stock['Bid']+"</td><td>"+stock['Ask']+"</td><td><img src="+stock['Chart']+"/></td><td><input type=\"radio\" name=\"rb\" value=\""+i+"\" onclick=\"functioncall" + i +"()\"></td></tr>";
+					}
+					txt += "</table>";
+					document.getElementById("myActiveArea").innerHTML=txt;
+
+				}
+				else
+				{
+
+				var stockerr = eval('(' + xmlhttp.responseText + ')');
+                                msg = "There was an error" + stockerr['errormsg'];
+  				document.getElementById("myActiveArea").innerHTML =msg;
+				}
+
+			}
+
+		}
+
+ function functioncall0()
+{
+document.getElementById("facebook").disabled=false;
+Index=0;
+}
+ function functioncall1()
+{
+document.getElementById("facebook").disabled=false;
+Index=1;
+}
+ function functioncall2()
+{
+document.getElementById("facebook").disabled=false;
+Index=2;
+}
+
+
+	</script> 
+</head> 
+<body> 
+<center> 
+<h1>Latest Quote for Your Favourite Stock</h1> 
+<br>
+<h2>Please enter 3 stock symbols</h2> 
+<h3>seperated by spaces</h3> 
+<input type="text" id="searchstockval"></input> 
+<input type="submit" value="Search" size="25" onclick="RequestLoadDoc('http://cs-server.usc.edu:13676/examples/servlet/ajax_finance')"></input> 
+<div id="myActiveArea"></div> 
+<br>
+<br>
+<input type=button id='facebook' value='POST TO FACEBOOK NEWS FEED' onClick="Post_onWall()" disabled=true /> 
+</center> 
+</body> 
+</html> 

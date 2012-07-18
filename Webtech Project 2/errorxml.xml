@@ -1,0 +1,105 @@
+<?xml version = "1.0"?> 
+<catalog>
+     <title>Flowers of the week</title>
+     <plant> 
+	<name>Butterfly bush</name>
+	<latin>Buddleja alternifolia</latin> 
+	<price>$3.45</price>
+	<height>4.5m</height>
+
+        <season>Summer</season> 
+	<condition>dry sun</condition>
+	<image>http://www-scf.usc.edu/~csci571/2010Fall/hw4/bbush.jpg</image>
+	<video>http://www.youtube.com/watch?v=oOuujn4rCHw</video>
+     </plant> 
+	<name>Pineapple broom</name>
+	<latin>Cytisus Battandieri</latin> 
+	<price>$5.00</price>
+
+	<height>4m</height>
+	<season>Early Summer</season> 
+	<condition>dry sun</condition>
+	<image>http://www-scf.usc.edu/~csci571/2010Fall/hw4/pbroom.jpg</image>
+	<video>http://www.youtube.com/watch?v=CnKt1UA6uI0</video>
+     </plant>
+     <plant> 
+	<name>Peony</name>
+
+	<latin>Paeonia Lactiflora hybrids</latin> 
+	<price>$2.15</price>
+	<height>60cm</height>
+	<season>Summer</season> 
+	<condition>shade</condition>
+	<image>http://www-scf.usc.edu/~csci571/2010Fall/hw4/peony.jpg</image>
+	<video>http://www.youtube.com/watch?v=Uby3vP5Jkw8</video>
+
+     </plant>
+     <plant> 
+	<name>Hollyhock</name>
+	<latin>Alcea rosea</latin> 
+	<price>$2.00</price>
+	<height>2.5m</height>
+	<season>Summer</season> 
+	<condition>Clay soil</condition>
+
+	<image>http://www-scf.usc.edu/~csci571/2010Fall/hw4/alcea.jpg</image>
+	<video>http://www.youtube.com/watch?v=nF0NaVVLDlM</video>
+     </plant>
+     <plant> 
+	<name>Eggplant</name>
+	<latin>Solanum Melongena</latin> 
+	<price>$1.40</price>
+
+	<height>45cm</height>
+	<harvest>68 days</harvest> 
+	<condition>1 m apart</condition>
+	<image>http://www-scf.usc.edu/~csci571/2010Fall/hw4/eggblack.jpg</image>
+	<video>http://www.youtube.com/watch?v=gRTnaDaOl6A</video>
+     </plant>
+     <plant> 
+	<name>Tomato</name>
+
+	<latin>Lycopersion Esculentum</latin> 
+	<price>$1.50</price>
+	<height>1m</height>
+	<harvest>80 days</harvest> 
+	<condition>wire cage</condition>
+	<image>http://www-scf.usc.edu/~csci571/2010Fall/hw4/tomatoes.jpg</image>
+	<video>http://www.youtube.com/watch?v=asAtxhG3fBs</video>
+
+     </plant>
+     <plant> 
+	<name>Scarlet Beans</name>
+	<latin>Phaseolus Coccineus</latin> 
+	<price>$2.00</price>
+	<height>2m</height>
+	<harvest>64 days</harvest> 
+	<condition>planted 10cm apart at the base</condition>
+
+	<image>http://www-scf.usc.edu/~csci571/2010Fall/hw4/beanfortex.jpg</image>
+	<video>http://www.youtube.com/watch?v=--nBerW0an4</video>
+     </plant>
+     <plant> 
+	<name>Carrot</name>
+	<latin>Daucus carota</latin> 
+	<price>$1.80</price>
+
+	<height>30cm</height>
+	<harvest>73 days</harvest> 
+	<condition>thin to 8cm apart</condition>
+	<image>http://www-scf.usc.edu/~csci571/2010Fall/hw4/carrot.jpg</image>
+	<video>http://www.youtube.com/watch?v=EWTd0BMdtvg</video>
+     </plant>
+     <plant> 
+	<name>Cucumber</name>
+
+	<latin>Cucumis sativus</latin> 
+	<price>$2.10</price>
+	<height>20cm</height>
+	<harvest>60 days</harvest> 
+	<condition>75 cm apart</condition>
+	<image>http://www-scf.usc.edu/~csci571/2010Fall/hw4/cucumber.jpg</image>
+	<video>http://www.youtube.com/watch?v=sNtcNpjON5Q</video>
+
+     </plant>
+</catalog>

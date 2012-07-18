@@ -1,0 +1,54 @@
+
+
+                     -------------------------------------------------------
+                                         READ -ME FILE
+                     -------------------------------------------------------
+
+-----------------------
+  Name : Mansi Narain
+  Course: CSCI571
+-----------------------  
+
+--------------
+  HOMEWORK 4
+--------------
+
+
+DESCRIPTION OF HOMEWORK
+--------------------------
+
+This homework gives a user the ability to view his XML data in a tabular form.
+The user has to submit the XML file as a query on the first page which will direct him to
+another window incase the XML is vaid,else it will display an error message- "Error in
+XML file".
+
+
+DESCRIPTION OF CODE
+---------------------
+
+In order to provide the given functionality, i used HTML/Javascipt. I made 4 functions: 
+
+xml_linkextract() -- This function extracts the user input URL and passes it
+-----------------    to the function parsexml();
+                     
+
+
+parsexmlfile() --    This function parses the XML file usin XML DOM parser and calls
+--------------       the function generateTablefromXML() to generate the tabular
+                     representation of the data in a new window.
+                     
+
+generateTablefromXML()-- This function is the main function. It takes the values from
+----------------------   the XML tree and appropriately displays it in a tabular form.
+ 
+                         To provide scalable functionality, i have taken a counter to
+                         count the number of records in the XML file to display the 
+                         exact number of rows in the table.
+ 
+
+                         Then,for each record, i have run a nested loop to represent
+                         the values of the record.
+
+                         Checking the nodeName, for image and video i have embedded the
+                         appropriate code required to display them.
+

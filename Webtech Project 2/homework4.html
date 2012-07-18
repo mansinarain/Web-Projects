@@ -1,0 +1,125 @@
+
+<html>
+ <head>
+  <title> Homework #4 </title>
+  <script type="text/javascript">
+  function generateTablefromXML(xmlDoc) // This function is used to generate the tabular representation of the data present in the XML file.
+{
+
+    wintitle=xmlDoc.getElementsByTagName("title")[0].childNodes[0].nodeValue;
+	titlem = xmlDoc.documentElement.childNodes[3].childNodes.item(1).nodeName;
+    filetext_html ="<html><head><title>" + titlem + " Parse Result</title></head><h1>" + wintitle + "</h1><bo"+"dy>";
+	filetext_html+="<table border =\"2\"><tr>";
+
+    x=xmlDoc.documentElement.childNodes;
+    
+
+
+    y=x[3].childNodes;
+
+	for (i=0;i<y.length;i++)
+	{
+		//Display only element nodes
+		if (y.item(i).nodeType!=3)
+		{
+			tabledata= y.item(i).nodeName;
+
+			filetext_html+="<td><b>"+tabledata+"</b></td>";
+		}
+	}
+
+
+counter=0;
+//finding number of records
+ for (i=0;i<x.length;i++)
+{ 
+if (x[i].nodeType!=3)
+  {//Process only element nodes (type 1) 
+ counter=counter+1;
+  } 
+}
+
+for(m = 1,mitem = 3;m < counter && mitem < y.length;m++,mitem = mitem + 2)
+{
+filetext_html+="</tr><tr>";
+//code for uploading data
+
+ele = xmlDoc.documentElement.childNodes;
+cross= ele[mitem].childNodes;
+for(n = 0;n < cross.length;n++)
+  {
+  if (cross.item(n).nodeType!=3)
+    {
+         if (cross.item(n).nodeName=="image" || cross.item(n).nodeName=="Image") 
+           {
+		     tablenam = cross.item(n).childNodes[0].nodeValue;
+             filetext_html+="<td><img src ="+tablenam+"\></td>";
+			 continue;
+           }
+
+	if (cross.item(n).nodeName=="video" || cross.item(n).nodeName=="Video") 
+           {
+		    tablenam = cross.item(n).childNodes[0].nodeValue;
+			var indexOfStr= tablenam.search("v=");
+			tablenam = tablenam.substring(indexOfStr+2);
+			tablenam= "http://www.youtube.com/v/"+tablenam+"&amp;hl=en_US&amp;fs=1";
+			filetext_html+="<td>";
+            filetext_html+="<object width='320' height='192'>";
+		    filetext_html+="<param name='movie' value='"+tablenam+"'>";
+		    filetext_html+="</param><param name='allowFullScreen' value='true'>";
+		    filetext_html+="</param><param name='allowscriptaccess' value='always'>";
+		    filetext_html+="</param><embed src='"+tablenam+"' type='application/x-shockwave-flash' allowscriptaccess='always' allowfullscreen='true' width='320' height='192'></embed></object>";
+            filetext_html+="</td>";
+			continue;
+           }
+
+
+		   else
+		   {
+                 tablenam = cross.item(n).childNodes[0].nodeValue;
+	             filetext_html+="<td>"+tablenam+"</td>";
+           }    
+	}
+
+  }
+}
+filetext_html+="</tr>";
+ filetext_html+="</table>";
+  filetext_html+="</bo"+"dy></html>"
+}
+  function parsexmlfile() // This function is used to parse the XML file.
+  {
+     if (document.implementation && document.implementation.createDocument)
+     {
+       var xmlDoc= document.implementation.createDocument("","doc",null);
+       xmlDoc.async=false; 
+       loaded = xmlDoc.load(xml_link);
+	   if(!loaded)
+	   {
+       alert("Error in XML File");
+       }
+       else
+       {
+       generateTablefromXML(xmlDoc);
+	   mywindow = window.open("", "New Window", "scrollbars=yes,height=800,width=600");
+       mywindow.document.write(filetext_html);
+       }
+      
+     }
+  }
+  function xml_linkextract() //This function is used to extract the user input link
+   {
+  xml_link=document.forms["inputform"].URL.value;
+  parsexmlfile();
+   }
+  </script>
+ </head>
+ <body>
+ <P><h1>View the products of the week</h1></P>
+ <form name ="inputform">
+ Enter XML file <input type="text" name="URL" maxlength="255" size="70"/><br>
+ <input type="submit" onClick="xml_linkextract()" value="Submit Query">
+ </form>
+ <noscript>
+ </body>
+</html>

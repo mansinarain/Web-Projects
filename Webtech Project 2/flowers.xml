@@ -1,0 +1,63 @@
+<catalog> 
+     <title>Flowers of the week</title> 
+    <plant>
+	<Flower>Butterfly bush</Flower> 
+	<Image>http://www-scf.usc.edu/~csci571/2010Fall/hw4/bbush.jpg</Image> 
+	<Name>Buddleja alternifolia</Name> 
+	<price>$3.45</price> 
+	<height>4.5m</height> 
+        <Season>Summer</Season> 
+	<Conditions>dry sun</Conditions> 
+	<video>http://www.youtube.com/watch?v=oOuujn4rCHw</video> 
+     </plant> 
+     <plant> 
+	<Flower>Pineapple broom</Flower> 
+	<Image>http://www-scf.usc.edu/~csci571/2010Fall/hw4/pbroom.jpg</Image> 
+	<Name>Cytisus Battandieri</Name> 
+	<price>$5.00</price> 
+	<height>4m</height> 
+	<Season>Early Summer</Season> 
+	<Conditions>dry sun</Conditions> 
+	<video>http://www.youtube.com/watch?v=CnKt1UA6uI0</video> 
+     </plant> 
+     <plant> 
+	<Flower>Peony</Flower> 
+	<Image>http://www-scf.usc.edu/~csci571/2010Fall/hw4/peony.jpg</Image> 
+	<Name>Paeonia Lactiflora hybrids</Name> 
+	<price>$2.15</price> 
+	<height>60cm</height> 
+	<Season>Summer</Season> 
+	<Conditions>shade</Conditions> 
+	<video>http://www.youtube.com/watch?v=Uby3vP5Jkw8</video> 
+     </plant> 
+     <plant> 
+	<Flower>Hollyhock</Flower> 
+	<Image>http://www-scf.usc.edu/~csci571/2010Fall/hw4/alcea.jpg</Image> 
+	<Name>Alcea rosea</Name> 
+	<price>$2.00</price> 
+	<height>2.5m</height> 
+	<Season>Summer</Season> 
+	<Conditions>Clay soil</Conditions> 
+	<video>http://www.youtube.com/watch?v=nF0NaVVLDlM</video> 
+     </plant> 
+	   <plant> 
+	<Flower>Hollyhock</Flower> 
+	<Image>http://www-scf.usc.edu/~csci571/2010Fall/hw4/alcea.jpg</Image> 
+	<Name>Alcea rosea</Name> 
+	<price>$2.00</price> 
+	<height>2.5m</height> 
+	<Season>Summer</Season> 
+	<Conditions>Clay soil</Conditions> 
+	<video>http://www.youtube.com/watch?v=nF0NaVVLDlM</video> 
+     </plant> 
+	   <plant> 
+	<Flower>Hollyhock</Flower> 
+	<Image>http://www-scf.usc.edu/~csci571/2010Fall/hw4/alcea.jpg</Image> 
+	<Name>Alcea rosea</Name> 
+	<price>$2.00</price> 
+	<height>2.5m</height> 
+	<Season>Summer</Season> 
+	<Conditions>Clay soil</Conditions> 
+	<video>http://www.youtube.com/watch?v=nF0NaVVLDlM</video> 
+     </plant> 
+</catalog>

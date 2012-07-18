@@ -1,0 +1,204 @@
+<html>
+<head><title>Establish Your Account</title><h1><center><FONT COLOR="#0000FF"><u>Establish Your Account</u></FONT></center></h1>
+<script type='text/javascript'>
+
+function formValidation()
+   {
+	var firstname = document.getElementById('firstname');
+	var middleinit = document.getElementById('middleinit');
+	var lastname = document.getElementById('lastname');
+	var addr= document.getElementById('addr');
+	var city = document.getElementById('city');
+	var zipcode = document.getElementById('zipcode');
+	var state = document.getElementById('state');
+	var loginnm = document.getElementById('loginnm');
+	var loginpwd = document.getElementById('loginpwd');
+	var loginconfpwd = document.getElementById('loginconfpwd');
+	var stock1 = document.getElementById('stock1');
+	var stock2 = document.getElementById('stock2');
+	var stock3 = document.getElementById('stock3');
+	
+	if(isnotEmpty(firstname, "You have not entered your First Name")){
+	if(isnotEmpty(lastname, "You have not entered your Last Name")){
+	if(isnotEmpty(addr, "You have not entered your Address")){
+	if(isnotEmpty(city, "You have not entered your city")){
+	if(isnotEmpty(zipcode, "You have not entered your zipcode ")){
+	if(isnotEmpty(loginnm, "You have not entered your Login Name")){
+	if(isnotEmpty(loginpwd, "You have not entered your Password")){
+	if(isnotEmpty(loginconfpwd, "You have not entered your Confirmation Password ")){
+	if(isnotEmpty(stock1, "You have not entered one of your Favourite Stocks")){
+	if(isnotEmpty(stock2, "You have not entered one of your Favourite Stocks")){
+	if(isnotEmpty(stock3, "You have not entered one of your Favourite Stocks")){
+	if(Samepattern(loginpwd,loginconfpwd )){
+			if(isNumeric(zipcode, "Please enter a valid zip code")){
+					if(isAlphabet(stock1,"Please enter a valid stock code")){
+					if(isAlphabet(stock2,"Please enter a valid stock code")){
+					if(isAlphabet(stock3,"Please enter a valid stock code")){
+					if(lengthRestriction(zipcode, 5, 5,"Please enter a valid 5 digit zipcode")){
+					if(lengthRestriction(stock1, 1, 4,"Please enter a valid stock code")){
+					if(lengthRestriction(stock2, 1, 4,"Please enter a valid stock code")){
+					if(lengthRestriction(stock3, 1, 4,"Please enter a valid stock code")){
+
+							return true;
+				}
+				}
+				}
+				}
+			}
+		}
+	    }
+	  }
+	}
+	}
+	}
+	}
+	}
+	}
+	}
+	}
+	}
+	}
+	}
+	}
+	
+	
+	return false;
+	
+}
+
+function isnotEmpty(tag, alertMsg){
+	if(tag.value.length == 0){
+		alert(alertMsg);
+		tag.focus(); // set the focus to this input
+		return false;
+	}
+	return true;
+}
+
+function isNumeric(tag, alertMsg){
+	var numericExpression = /^[0-9]+$/;
+	if(tag.value.match(numericExpression)){
+		return true;
+	}else{
+		alert(alertMsg);
+		tag.focus();
+		return false;
+	}
+}
+
+function isAlphabet(tag, alertMsg){
+	var alphaExp = /^[a-zA-Z]+$/;
+	if(tag.value.match(alphaExp)){
+		return true;
+	}else{
+		alert(alertMsg);
+		tag.focus();
+		return false;
+	}
+}
+
+function lengthRestriction(tag, min, max,alertMsg){
+	var userInput = tag.value;
+	if(userInput.length >= min && userInput.length <= max){
+		return true;
+	}else{
+		alert(alertMsg);
+		tag.focus();
+		return false;
+	}
+}
+
+function Samepattern(elem1,elem2)
+{
+   if (elem1.value == elem2.value)  
+{  return true;}
+ else
+{  alert("The passwords you have provided do not match");
+   return false;
+}
+}
+
+</script>
+</head>
+<body bgcolor="66CCCC">
+<form method="POST" action="/cgi-bin/validate.pl" >
+
+<hr>
+<hr>
+<b>First name: </b><br><input type="text" maxlength="255" size="30" name="FIRSTNAME" id="firstname" /><br>
+<b>Middle Initial: </b><br><input type="text" maxlength="255" size="30" name="MIDDLEINIT" id="middleinit" /><br>
+<b>Last name: </b><br><input type="text" maxlength="255" size="30" name="LASTNAME" id="lastname" /><br>
+<b>Address: </b><br><input type="text" maxlength="600" size ="80" name="ADDR" id="addr" /><br>
+<b>City: </b><br><input type="text" maxlength="255" size="30" name="CITY" id="city" /><br>
+<b>State: </b><br><select id="States" name="STATE" id="state" size="1">
+                    <option value="AK">Alaska</option>
+                    <option value="AL">Alabama</option>
+                    <option value="AR">Arkansas</option>
+                    <option value="AZ">Arizona</option>
+                    <option  selected value="CA">California</option>
+                    <option value="CO">Colorado</option>
+                    <option value="CT">Connecticut</option>
+                    <option value="DC">Washington D.C.</option>
+                    <option value="DE">Delaware</option>
+                    <option value="FL">Florida</option>
+                    <option value="GA">Georgia</option>
+                    <option value="HI">Hawaii</option>
+                    <option value="IA">Iowa</option>
+                    <option value="ID">Idaho</option>
+                    <option value="IL">Illinois</option>
+                    <option value="IN">Indiana</option>
+                    <option value="KS">Kansas</option>
+                    <option value="KY">Kentucky</option>
+                    <option value="LA">Louisiana</option>
+                    <option value="MA">Massachusetts</option>
+                    <option value="MD">Maryland</option>
+                    <option value="ME">Maine</option>
+                    <option value="MI">Michigan</option>
+                    <option value="MN">Minnesota</option>
+                    <option value="MO">Missourri</option>
+                    <option value="MS">Mississippi</option>
+                    <option value="MT">Montana</option>
+                    <option value="NC">North Carolina</option>
+                    <option value="ND">North Dakota</option>
+                    <option value="NE">Nebraska</option>
+                    <option value="NH">New Hampshire</option>
+                    <option value="NJ">New Jersey</option>
+                    <option value="NM">New Mexico</option>
+                    <option value="NV">Nevada</option>
+                    <option value="NY">New York</option>
+                    <option value="OH">Ohio</option>
+                    <option value="OK">Oklahoma</option>
+                    <option value="OR">Oregon</option>
+                    <option value="PA">Pennsylvania</option>
+                    <option value="PR">Puerto Rico</option>
+                    <option value="RI">Rhode Island</option>
+                    <option value="SC">South Carolina</option>
+                    <option value="SD">South Dakota</option>
+                    <option value="TN">Tennessee</option>
+                    <option value="TX">Texas</option>
+                    <option value="UT">Utah</option>
+                    <option value="VA">Virginia</option>
+                    <option value="VT">Vermont</option>
+                    <option value="WA">Washington</option>
+                    <option value="WI">Wisconsin</option>
+                    <option value="WV">West Virginia</option>
+                    <option value="WY">Wyoming</option>
+</select><br>
+<b>Zip Code: </b><br><input type="text" maxlength="255" size="30" name="ZIPCODE" id="zipcode" /><br>
+<hr>
+<hr>
+<b>Login name: </b><br><input type="text" maxlength="255" size="30" name="LOGINNM" id="loginnm" /><br>
+<b>Password: </b><br><input type="password" maxlength="255" size="30" name="LOGINPWD" id="loginpwd" /><br>
+<b>Confirm Password: </b><br><input type="password" maxlength="255" size="30" name="LOGINCONFPWD" id="loginconfpwd" /><br>
+<hr>
+<hr>
+<b>My Favourite 3 Stocks: </b><br><input type="text" maxlength="255" size="30" name="STOCK1" id ="stock1" /><br><br>
+<input type="text" maxlength="255" size="30" name="STOCK2" id="stock2" /><br><br>
+<input type="text" maxlength="255" size="30" name="STOCK3" id="stock3" /><br>
+<br>
+<br>
+<br>
+<center><input type ="submit" value="Submit Your Account Information" name="submitval"  onclick='return formValidation()'></center>
+</form>
+</body>
+</html>
